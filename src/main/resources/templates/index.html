@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alexandria Library Home Page</title>
+</head>
+<body>
+<header>
+
+</header>
+
+<div align="center">
+    <h1>Add new book</h1>
+    <a href="/html/addNewBook">Click here to add a new book</a>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th> Title </th>
+        <th> Author </th>
+        <th> Publisher </th>
+        <th> Available? </th>
+        <th> Location </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${books}">
+        <td><span th:text="${book.title}"> Title </span></td>
+        <td><span th:text="|${book.author.name} ${book.author.age}|"> Author </span></td>
+        <td><span th:text="${book.publisher}"> Publisher</span></td>
+        <td><span th:text="${book.status.available}"> Available</span></td>
+        <td><span th:text="|${book.shelfLocation.shelfSection} ${book.shelfLocation.row}|"> Location </span></td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+<footer>
+</footer>
+
+</html>
